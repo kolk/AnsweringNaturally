@@ -1,6 +1,6 @@
 # Answering Naturally : Factoid to Full length Answer Generation 
 
-The dataset is contained in data directory. train.ques, train.ans, train.tgt contains data triplet (question, factoid answer, target full length answer) in each line respectively.
+Code base for paper Answering Naturally : Factoid to Full length Answer Generation (https://www.aclweb.org/anthology/D19-5401.pdf) .The dataset is contained in data directory. train.ques, train.ans, train.tgt contains data triplet (question, factoid answer, target full length answer) in each line respectively.
 
 The codebase is built over [OpenNMT](https://github.com/OpenNMT/OpenNMT)
 
