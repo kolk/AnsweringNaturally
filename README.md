@@ -43,3 +43,20 @@ python translate.py -src data/test.ques  -tgt data/test.tgt -model models/model.
 ```
 The output predictions are in `pred.txt`.
 
+### Citation
+```
+@inproceedings{pal-etal-2019-answering,
+    title = "Answering Naturally: Factoid to Full length Answer Generation",
+    author = "Pal, Vaishali  and
+      Shrivastava, Manish  and
+      Bhat, Irshad",
+    booktitle = "Proceedings of the 2nd Workshop on New Frontiers in Summarization",
+    month = nov,
+    year = "2019",
+    address = "Hong Kong, China",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/D19-5401",
+    doi = "10.18653/v1/D19-5401",
+    pages = "1--9",
+}
+```
