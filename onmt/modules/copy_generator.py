@@ -85,7 +85,7 @@ class CopyGenerator(nn.Module):
         self.linear_copy = nn.Linear(input_size, 1)
         self.pad_idx = pad_idx
 
-    def forward(self, hidden, attn, src_map):
+    def forward(self, hidden, attn, src_map, src_vocab=None):
         """
         Compute a distribution over the target dictionary
         extended by the dynamic dictionary implied by compying
@@ -121,6 +121,12 @@ class CopyGenerator(nn.Module):
             src_map.transpose(0, 1)
         ).transpose(0, 1)
         copy_prob = copy_prob.contiguous().view(-1, cvocab)
+        """logger.info("copy_prob")
+        for samp, sv in zip(copy_prob, src_vocab):
+            logger.info(samp)
+            logger.info(sv)
+        logger.info("********************************************")
+        """
         return torch.cat([out_prob, copy_prob], 1)
 
 
@@ -203,7 +209,7 @@ class CopyGeneratorLossCompute(LossComputeBase):
         target = target.view(-1)
         align = align.view(-1)
         scores = self.generator(
-            self._bottle(output), self._bottle(copy_attn), batch.src_map
+            self._bottle(output), self._bottle(copy_attn), batch.src_map, batch.dataset.src_vocabs
         )
         loss = self.criterion(scores, align, target)
 

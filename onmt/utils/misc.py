@@ -5,8 +5,8 @@ import random
 import codecs
 from itertools import islice
 import numpy as np
-from torch.nn._functions.packing import PackPadded
-from torch.nn.utils.rnn import PackedSequence
+#from torch.nn._functions.packing import PackPadded
+#from torch.nn.utils.rnn import PackedSequence
 
 
 def split_corpus(path, shard_size):
@@ -90,8 +90,7 @@ def set_random_seed(seed, is_cuda):
         torch.cuda.manual_seed(seed)
 
 
-
-
+'''
 def pack_padded_sequence_ans(input, lengths, batch_first=False):
     r"""Packs a Tensor containing padded sequences of variable length.
 
@@ -136,4 +135,4 @@ def pack_padded_sequence_ans(input, lengths, batch_first=False):
         #batch_sizes[index] = batch_sizes_[i]
 
     return PackedSequence(data, batch_sizes)
-
+'''

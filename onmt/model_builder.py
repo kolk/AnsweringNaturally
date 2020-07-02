@@ -148,9 +148,10 @@ def build_base_model(model_opt, fields, gpu, checkpoint=None):
         src_emb = build_embeddings(model_opt, src_field)
         encoder = build_encoder(model_opt, src_emb)
 
-        '''ans_fields = [f for n, f in fields['ans']]
+        ans_fields = [f for n, f in fields['ans']]
         assert len(ans_fields) == 1
         ans_field = ans_fields[0]
+        '''
         ans_emb = build_embeddings(model_opt, ans_field)
         encoder_ans = build_encoder(model_opt, ans_emb)
         '''
@@ -174,7 +175,7 @@ def build_base_model(model_opt, fields, gpu, checkpoint=None):
 
     # Build NMTModel(= encoder + decoder).
     device = torch.device("cuda" if gpu else "cpu")
-    model = onmt.models.NMTModel(encoder, decoder)
+    model = onmt.models.NMTModel(encoder, decoder, src_field.base_field.vocab)
 
     # Build Generator.
     if not model_opt.copy_attn:
