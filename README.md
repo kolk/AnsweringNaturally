@@ -47,6 +47,9 @@ python translate.py -src data/test_padded.ques -ans data/test_padded.ans  -tgt d
 ```
 The output predictions are in `pred.txt`.
 
+### Model:
+The trained model can be found at: https://iiitaphyd-my.sharepoint.com/:u:/g/personal/vaishali_pal_research_iiit_ac_in/ETUmlop2tl1Dql-DeNCJwG8BoUfcJXaPUsdI1b9mylAlRw?e=Ywd2EM
+
 ### Citation
 ```
 @inproceedings{pal-etal-2019-answering,
